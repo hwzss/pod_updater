@@ -1,8 +1,7 @@
 # PodUpdater
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pod_updater`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+iOS开发中帮助您快速的将自己的开发的pod库代码上传到git，并帮你push到podspec repo库去
+使用方式：cd到你的pod库代码目录，然后执行'pod_updater -v [new_version]',然后就可以去喝杯茶了
 
 ## Installation
 
@@ -22,7 +21,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+cd to the path where your podspec project.
+
+```
+    cd ~/Desktop/my_private_pod/my_first_pod
+    
+```
+then , run 'pod_updater -v 1.0.1' 
+
+```
+    pod_updater -v 1.0.1
+```
+
+There are some shell commands in my shell.
+
+```
+qwkdeMacBook-Pro-2:~ qwk$ cd ~/Documents/WZ_GitHub/WZ_HelloKit 
+
+qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0
+
+```
+
 
 ## Development
 
@@ -41,3 +60,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the PodUpdater project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pod_updater/blob/master/CODE_OF_CONDUCT.md).
+
+
