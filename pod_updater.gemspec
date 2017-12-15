@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["hwzss"]
   spec.email         = ["1833361588@qq.com"]
 
-  spec.summary       = %q{just for test}
-  spec.description   = %q{just for test}
+  spec.summary       = %q{iOS开发中帮助您快速的将自己的开发的pod库代码上传到git，并帮你push到podspec repo库去}
+  spec.description   = %q{iOS开发中帮助您快速的将自己的开发的pod库代码上传到git，并帮你push到podspec repo库去\n 使用方式：cd到你的pod库代码目录，然后执行'pod_updater -v [new_version]',然后就可以去喝杯茶了}
   spec.homepage      = "https://github.com/hwzss/pod_updater"
   spec.license       = "MIT"
 
