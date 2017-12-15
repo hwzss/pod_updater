@@ -1,16 +1,6 @@
-require "podUpdater/version"
-require "podUpdater/pod_push"
+#!/usr/bin/env ruby
 
-
-module PodUpdater
-
-	def self.run(version)
-		path = File.expand_path(Dir.pwd)		
-		pushPodToSevice(path,version)
-	end
-
-end
-
+require 'podUpdater.rb'
 require 'optparse'
 
 options = {}
@@ -30,5 +20,5 @@ unless options[:version]
 	abort("ABORTED! You forgot pass a version value with command \'-v [version]\'")
 	exit
 end
-puts "哈哈哈开始"
+
 PodUpdater.run(options[:version])
