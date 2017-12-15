@@ -1,5 +1,5 @@
-require "podUpdater/git_tag_flow"
-require "podUpdater/modify_podspec"
+require "pod_updater/git_tag_flow"
+require "pod_updater/modify_podspec"
 
 module PodUpdater
 
@@ -34,5 +34,5 @@ module PodUpdater
 	end
 
 	module_function :pushPodToSevice
-	module_function :sayHi
+	
 end
