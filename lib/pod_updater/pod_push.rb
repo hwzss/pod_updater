@@ -1,5 +1,6 @@
 require "pod_updater/git_tag_flow"
 require "pod_updater/modify_podspec"
+require 'pod_updater/ui'
 
 module PodUpdater
 
@@ -12,7 +13,7 @@ module PodUpdater
 		podFilePath = pathWithPodspecSuffix(path)
 
 		unless podFilePath 
-			puts "未找到相应的podspec文件"
+			UI.err("未找到相应的podspec文件")
 			return
 		end
 
@@ -27,7 +28,7 @@ module PodUpdater
 
 		IO.popen(cmd.join('')) do |io|
 			io.each do |line|
-				puts line
+				UI.msg(line)
 			end
 		end
 		

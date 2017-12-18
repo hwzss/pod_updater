@@ -1,3 +1,4 @@
+require 'pod_updater/ui'
 
 module PodUpdater
 
@@ -5,11 +6,11 @@ module PodUpdater
 	def modifyPodspec(path:"",version:"0.0.0")
 
 		if version == "0.0.0"
-			puts "请指定版本好的值，如 modifyPodspec version:#{version}"
+			UI.msg "请指定版本好的值，如 modifyPodspec version:#{version}"
 			return
 		end
 		unless version =~ /^\d{1,}.\d.\d$|^\d{1,}.\d$|^\d{1,}$/
-			puts "version:#{version}的格式不对"
+			UI.msg "version:#{version}的格式不对"
 			return 
 		end
 
@@ -18,11 +19,11 @@ module PodUpdater
 		# END
 
 		unless File.exist?path
-			puts "路径不存在"
+			UI.err "路径不存在"
 			return
 		end
 
-		puts "***修改podspec文件***"
+		UI.msg "***修改podspec文件***"
 		File.open(path, "r+") do |f|
 			s = ""
 			f.each_line do |line|
@@ -36,7 +37,7 @@ module PodUpdater
 				end
 				s += line
 			end
-			puts "#{s}"
+			UI.msg "#{s}"
 			File.open(path, "w+") do |f| f.write(s) end
 		end	
 		
@@ -53,26 +54,26 @@ module PodUpdater
 
 			if File.directory?(path)
 				podfiles = Dir.glob("#{path}/*.podspec")
-				puts "#{podfiles}"
+				UI.msg "#{podfiles}"
 				if podfiles.length == 0
-					puts %('#{path}'下无法找到'.podspec'文件)
+					UI.err %('#{path}'下无法找到'.podspec'文件)
 					return nil
 				elsif podfiles.length == 1
 					path = podfiles.first
 				else
-					puts "目录下找到多个podspec文件！"
+					UI.msg "目录下找到多个podspec文件！"
 					podfiles.each_with_index do |elem, index|
 						basename = File.basename(elem)
 						puts %(#{index}.#{basename} )
 					end
-					puts "请指定您当前需要的操作的文件,输入它的序号:"
+					UI.msg "请指定您当前需要的操作的文件,输入它的序号:"
 					i = gets.to_i
 
 					case i
 					when 0 .. (podfiles.length-1)
 						path = podfiles[i.to_i]	
 					else
-						puts "输入错误❌"
+						UI.err "输入错误❌"
 						path = nil
 					end
 					

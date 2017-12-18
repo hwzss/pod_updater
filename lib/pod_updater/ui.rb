@@ -1,6 +1,6 @@
 require 'colorize'
 
-module PodUpdate
+module PodUpdater
 
   class UI
     def self.err(msg)
@@ -20,4 +20,5 @@ module PodUpdate
     end
   end
 
+  
 end

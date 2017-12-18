@@ -1,3 +1,4 @@
+require 'pod_updater/ui'
 
 module PodUpdater
 
@@ -16,7 +17,7 @@ module PodUpdater
 		# TODO: 尝试在每次即将执行该命令时，打印出这次的命令
 		IO.popen(cmd.join(" && ")) do |io|
 			io.each do |line|
-				puts line
+				UI.msg line
 			end
 			io.close
 		end
