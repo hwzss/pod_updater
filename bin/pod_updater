@@ -7,18 +7,17 @@ options = {}
 option_parser = OptionParser.new do |opts|
 
   opts.banner = 'here is help messages of the command line tool'
-
   options[:version] = nil
   opts.on('-v', '--version [version]', String, 'the podspec\'s version') do |version|
-    options[:version] = version
+   	options[:version] = version
   end
 
 end.parse!
 
 unless options[:version]
 	
-	abort("ABORTED! You forgot pass a version value with command \'-v [version]\'")
-	exit
+  abort("ABORTED! You forgot pass a version value with command \'-v [version]\'")
+  exit
 end
 
 PodUpdater.run(options[:version])
