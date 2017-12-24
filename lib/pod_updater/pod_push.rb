@@ -6,15 +6,12 @@ module PodUpdater
 
 		# 给定pod库项目的路径，以及新版pod库的版本，将自己的pod提交到git,然后打上tag，再push trunk到pod服务器去
 	def pushPodToSevice(path,version)
-		# FOR_DEBUG:
-		# path = "/Users/qwkj/Documents/WZ_GitHub/WZ_Framework"
-		# END
 
 		podFilePath = pathWithPodspecSuffix(path)
 
 		unless podFilePath 
-			UI.err("未找到相应的podspec文件")
-			return
+		
+			return  # 未找到相应的podspec文件
 		end
 
 		msg = "for pod version:#{version}"

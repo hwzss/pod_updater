@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    pod_updater (0.3.9)
+      colorize
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16)
+  pod_updater!
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.16.0

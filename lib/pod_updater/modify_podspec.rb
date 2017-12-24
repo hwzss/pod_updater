@@ -54,9 +54,9 @@ module PodUpdater
 
 			if File.directory?(path)
 				podfiles = Dir.glob("#{path}/*.podspec")
-				UI.msg "#{podfiles}"
+			
 				if podfiles.length == 0
-					UI.err %('#{path}'下无法找到'.podspec'文件)
+					UI.err %(#{path} 路径下无法找到'.podspec'文件)
 					return nil
 				elsif podfiles.length == 1
 					path = podfiles.first
