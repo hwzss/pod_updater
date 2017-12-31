@@ -6,10 +6,15 @@ require 'optparse'
 options = {}
 option_parser = OptionParser.new do |opts|
 
-  opts.banner = 'here is help messages of the command line tool'
+  opts.banner = 'here is help messages of the command line tool for pod_updater'
   options[:version] = nil
-  opts.on('-v', '--version [version]', String, 'the podspec\'s version') do |version|
+  opts.on('-v', '--version [version]', String, 'the podspec\'s new version') do |version|
    	options[:version] = version
+  end
+
+  options[:cp_path] = nil
+  opts.on('-cp', '--cp_path [cp_path]', String, 'the path where the podspec file need to copy') do |cp_path|
+   	options[:cp_path] = cp_path
   end
 
 end.parse!
@@ -20,4 +25,4 @@ unless options[:version]
   exit
 end
 
-PodUpdater.run(options[:version])
+PodUpdater.run(options[:version], options[:cp_path])

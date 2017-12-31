@@ -5,7 +5,7 @@ module PodUpdater
 	
 	module_function
 	# 将podspec文件拷贝到备份的文件目录
-	def copy_podspec(podspec_path:from, copy_path:to, pod_version:pod_version)
+	def copy_podspec(podspec_path:from, copy_path:to, version:pod_version)
 
 		return unless to
 

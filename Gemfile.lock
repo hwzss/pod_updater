@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pod_updater (0.3.10)
+    pod_updater (0.4.1)
       colorize
 
 GEM
