@@ -19,19 +19,21 @@ module PodUpdater
 
 		modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
 
-		copy_podspec(podFilePath,cp_path,version)
+		if cp_path
+			copy_podspec(podFilePath, cp_path,version)
+		end
 
 		git_tag_flow(path,msg,version)
 
 		cmd = []
 		cmd << %(pod trunk push #{podFilePath} --allow-warnings)
-
+		UI.log_cmd(cmd)
 		IO.popen(cmd.join('')) do |io|
 			io.each do |line|
 				UI.msg(line)
 			end
 		end
-		
+
 	end
 
 	module_function :pushPodToSevice

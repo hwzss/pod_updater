@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# lib = File.expand_path("../../lib", __FILE__)
+# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require 'pod_updater'
 require 'optparse'
 
@@ -13,7 +16,7 @@ option_parser = OptionParser.new do |opts|
   end
 
   options[:cp_path] = nil
-  opts.on('-cp', '--cp_path [cp_path]', String, 'the path where the podspec file need to copy') do |cp_path|
+  opts.on('-c', '--cp_path [cp_path]', String, 'the path where the podspec file need to copy') do |cp_path|
    	options[:cp_path] = cp_path
   end
 
