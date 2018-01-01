@@ -30,8 +30,3 @@ module PodUpdater
 
 end
 
-include PodUpdater
-cmd = []
-cmd << %(pod trunk push  --allow-warnings)
-UI.log_cmd(cmd)
-UI.err('哈哈')
