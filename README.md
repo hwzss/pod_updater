@@ -1,7 +1,8 @@
 ![pod_updater](https://github.com/hwzss/sketch_learning/blob/master/%E4%BD%9C%E5%93%812/%E6%B7%A1%E8%93%9D%E8%89%B2%E9%A3%8E%E6%A0%BC1.png)
 
 
-#PodUpdater
+
+# PodUpdater
 
 iOS开发中帮助您快速的将自己的开发的pod库代码上传到git，并帮你push到podspec repo库去
 使用方式：cd到你的pod库代码目录，然后执行'pod_updater -v [new_version]',然后就可以去喝杯茶了
