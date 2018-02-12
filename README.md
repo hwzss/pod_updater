@@ -55,7 +55,7 @@ qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0
     ```
     qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0
     ``` 
-    命令时，会自动从当前目录读取 podUpdater 文件里的路径，并将podspec文件依次拷贝过去
+    命令时，会自动从当前目录读取 podUpdater 文件里的路径，并将podspec文件依次拷贝过去。可参考[例子](https://github.com/hwzss/WZ_HelloKit/blob/master/podUpdater)
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
