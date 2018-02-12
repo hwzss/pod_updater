@@ -9,7 +9,7 @@ require 'optparse'
 options = {}
 option_parser = OptionParser.new do |opts|
 
-  opts.banner = 'here is help messages of the command line tool for pod_updater'
+  opts.banner = 'here is help messages of the command line tool for \'pod_updater\''
   
   options[:version] = nil
   opts.on('-v', '--version [version]', String, 'the podspec\'s new version') do |version|
