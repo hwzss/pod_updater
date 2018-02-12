@@ -4,40 +4,31 @@
 
 # PodUpdater
 
-iOS开发中帮助您快速的将自己的开发的pod库代码上传到git，并帮你push到podspec repo库去
-使用方式：cd到你的pod库代码目录，然后执行'pod_updater -v [new_version]',然后就可以去喝杯茶了
+iOS 开发中帮助您快速的将自己的开发的pod库代码上传到 git ，并帮你 push 到 podspec repo 库去
+使用方式： cd 到你的 pod 库代码目录，然后执行'pod_updater -v [new_version]'，然后就可以去喝杯茶了
 
-## Installation
+## 如何安装
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'pod_updater'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+在 shell 输入下面命令
 
     $ gem install pod_updater
 
-## Usage
+## 使用
 
-cd to the path where your podspec project.
+cd 到你的 podspec 所在的目录路径，如：
 
 ```
-    cd ~/Desktop/my_private_pod/my_first_pod
+
+cd ~/Desktop/my_private_pod/my_first_pod
     
 ```
-then , run 'pod_updater -v 1.0.1' 
+然后输入下面命令： 
 
 ```
-    pod_updater -v 1.0.1
+pod_updater -v 1.0.1
 ```
 
-There are some shell commands in my shell.
+下面是一些我在使用时，shell里输入的命令
 
 ```
 qwkdeMacBook-Pro-2:~ qwk$ cd ~/Documents/WZ_GitHub/WZ_HelloKit 
@@ -47,22 +38,11 @@ qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0
 ```
 
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pod_updater. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
 
-Everyone interacting in the PodUpdater project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pod_updater/blob/master/CODE_OF_CONDUCT.md).
 
 
