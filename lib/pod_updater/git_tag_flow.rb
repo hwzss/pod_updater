@@ -15,7 +15,6 @@ module PodUpdater
 		cmd << 'git push --tags'
 
 		UI.log_cmd(cmd)
-		# TODO: 尝试在每次即将执行该命令时，打印出这次的命令
 		IO.popen(cmd.join(" && ")) do |io|
 			io.each do |line|
 				UI.msg line

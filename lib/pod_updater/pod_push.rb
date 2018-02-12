@@ -11,8 +11,7 @@ module PodUpdater
 
 		podFilePath = pathWithPodspecSuffix(path)
 
-		unless podFilePath 
-		
+		unless podFilePath 		
 			return  # 未找到相应的podspec文件
 		end
 

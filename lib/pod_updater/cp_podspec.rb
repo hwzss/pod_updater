@@ -4,7 +4,7 @@ require 'pod_updater/ui'
 module PodUpdater
 	
 	module_function
-	# 将podspec文件拷贝到备份的文件目录
+	# desc:将podspec文件拷贝到备份的文件目录
 	def copy_podspec(from_path, distination, pod_version)
 
 		return unless distination

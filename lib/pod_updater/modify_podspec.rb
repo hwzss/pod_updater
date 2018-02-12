@@ -13,11 +13,6 @@ module PodUpdater
 			UI.msg "version:#{version}的格式不对"
 			return 
 		end
-
-		# DEBUG：这里写死了路径是为了方便调试，正式用的话需去掉
-		# path = "/Users/qwkj/Documents/WZ_GitHub/Ruby_Learning/day_7/QW_Http.podspec"
-		# END
-
 		unless File.exist?path
 			UI.err "路径不存在"
 			return
@@ -30,7 +25,7 @@ module PodUpdater
 				# puts "#{line}"
 				if line.to_s =~ /s\.version\s*=\s*"(\d{1,}.\d.\d|\d{1,}.\d|\d{1,})"/
 					# puts "匹配到了"
-					temp = $1.to_s
+					ftemp = $1.to_s
 					line = line.sub(/\d{1,}.\d.\d|\d{1,}.\d|\d{1,}/) do |match| 
 						version.to_s
 					end
@@ -46,7 +41,6 @@ module PodUpdater
 		# 找到指定路径下的podspec文件名
 	def pathWithPodspecSuffix(path)
 
-		# path = "/Users/qwkj/Desktop/IOS_Pod_Spec_Repo/千网PodRepo/QWCrashReporter/1.0.8/"
 		path = File.expand_path(path)
 		return nil unless File.exist?(path)
 

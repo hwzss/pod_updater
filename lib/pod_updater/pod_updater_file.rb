@@ -23,8 +23,7 @@ class PodUpdaterFile
 		unless _path =~ /\/podUpdater$/
 			if File.directory?(_path)
 				pod_updater_paths = Dir.glob("#{_path}/podUpdater")
-				if pod_updater_paths.length == 0
-					# UI.err "无法找到podUpdater文件"
+				if pod_updater_paths.length == 0					
 					pod_updater_path = nil
 				elsif pod_updater_paths.length == 1
 					pod_updater_path = pod_updater_paths.first
