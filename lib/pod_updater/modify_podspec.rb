@@ -24,8 +24,6 @@ module PodUpdater
 			f.each_line do |line|
 				# puts "#{line}"
 				if line.to_s =~ /s\.version\s*=\s*"(\d{1,}.\d.\d|\d{1,}.\d|\d{1,})"/
-					# puts "匹配到了"
-					ftemp = $1.to_s
 					line = line.sub(/\d{1,}.\d.\d|\d{1,}.\d|\d{1,}/) do |match| 
 						version.to_s
 					end
