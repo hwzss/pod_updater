@@ -2,6 +2,7 @@ require 'pod_updater/git_tag_flow'
 require 'pod_updater/modify_podspec'
 require 'pod_updater/ui'
 require 'pod_updater/cp_podspec'
+require 'pod_updater/pod_updater_file'
 
 module PodUpdater
 
@@ -21,6 +22,13 @@ module PodUpdater
 
 		if cp_path
 			copy_podspec(podFilePath, cp_path,version)
+		end
+
+		pod_updater_file = PodUpdaterFile.new(File.dirname(podFilePath))
+		if pod_updater_file.paths
+			pod_updater_file.paths.each_with_index do |elem, index|
+				copy_podspec(podFilePath,elem.to_s, version)
+			end
 		end
 
 		git_tag_flow(path,msg,version)

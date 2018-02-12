@@ -1,5 +1,5 @@
-# lib = File.expand_path("../../lib", __FILE__)
-# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+lib = File.expand_path("../../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "pod_updater/version"
 require "pod_updater/pod_push"
@@ -13,3 +13,4 @@ module PodUpdater
 
 end
 
+PodUpdater.run('4.3.3', nil)

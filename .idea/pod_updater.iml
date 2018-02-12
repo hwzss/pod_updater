@@ -18,7 +18,7 @@
             <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
           </COVERAGE_PATTERN>
         </EXTENSION>
-        <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/lib/pod_updater.rb" />
+        <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/lib/pod_updater/pod_updater_file.rb" />
         <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
         <method />
       </configuration>
@@ -30,5 +30,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.0, ruby-2.0.0-p648) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="colorize (v0.8.1, ruby-2.0.0-p648) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.5.0, ruby-2.0.0-p648) [gem]" level="application" />
   </component>
 </module>
