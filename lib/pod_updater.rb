@@ -2,7 +2,8 @@
 # $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "pod_updater/version"
-require "pod_updater/pod_push"
+# require "pod_updater/pod_push"
+load "/Users/kaifa/Desktop/Working/GitLab/pod_updater/lib/pod_updater/pod_push.rb"
 
 module PodUpdater
 	

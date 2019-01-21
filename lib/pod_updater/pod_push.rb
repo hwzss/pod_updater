@@ -16,43 +16,56 @@ module PodUpdater
 			return  # 未找到相应的podspec文件
 		end
 
-		# TODO: 添加 pod lib lint 检查
-		output = `pod lib line #{podFilePath} --allow-warnings | grep -e 'ERROR|error'`
-		puts "输出output#{output}"
-		puts "outputs长度#{output.length.to_s}"
-		if output.length > 0			
-			puts "抓到错误"
+		#  pod lib lint 检查
+		lib_cmd = %(pod lib lint #{podFilePath} --allow-warnings)
+		output = ""
+		UI.log_cmd(lib_cmd)
+		IO.popen(lib_cmd) do |io|
+			io.each do |line|
+				UI.msg(line)
+				output += line.to_s
+			end
+		end
+
+		if output =~ %r(ERROR|error)
+			UI.err("pod lib lint 发生错误")
 			return
 		end
 
-		puts "未抓到错误"
-		return
+		puts "最后"
 
-		msg = "for pod version:#{version}"
+		# output = `pod lib lint #{podFilePath} --allow-warnings | grep -e 'ERROR\\|error'`
+		# if output.length > 0
+		# 	# TODO: 可以依次打印所有的输出
+		# 	UI.err(output)			
+		# 	return
+		# end
 
-		modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
+		# msg = "for pod version:#{version}"
 
-		if cp_path
-			copy_podspec(podFilePath, cp_path,version)
-		end
+		# modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
 
-		pod_updater_file = PodUpdaterFile.new(File.dirname(podFilePath))
-		if pod_updater_file.paths
-			pod_updater_file.paths.each_with_index do |elem, index|
-				copy_podspec(podFilePath,elem.to_s, version)
-			end
-		end
+		# if cp_path
+		# 	copy_podspec(podFilePath, cp_path,version)
+		# end
 
-		git_tag_flow(path,msg,version)
+		# pod_updater_file = PodUpdaterFile.new(File.dirname(podFilePath))
+		# if pod_updater_file.paths
+		# 	pod_updater_file.paths.each_with_index do |elem, index|
+		# 		copy_podspec(podFilePath,elem.to_s, version)
+		# 	end
+		# end
 
-		cmd = []
-		cmd << %(pod trunk push #{podFilePath} --allow-warnings)
-		UI.log_cmd(cmd)
-		IO.popen(cmd.join('')) do |io|
-			io.each do |line|
-				UI.msg(line)
-			end
-		end
+		# git_tag_flow(path,msg,version)
+
+		# cmd = []
+		# cmd << %(pod trunk push #{podFilePath} --allow-warnings)
+		# UI.log_cmd(cmd)
+		# IO.popen(cmd.join('')) do |io|
+		# 	io.each do |line|
+		# 		UI.msg(line)
+		# 	end
+		# end
 
 	end
 
