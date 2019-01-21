@@ -3,6 +3,7 @@ require 'pod_updater/modify_podspec'
 require 'pod_updater/ui'
 require 'pod_updater/cp_podspec'
 require 'pod_updater/pod_updater_file'
+require 'Cocoapods'
 
 module PodUpdater
 
@@ -14,6 +15,18 @@ module PodUpdater
 		unless podFilePath 		
 			return  # 未找到相应的podspec文件
 		end
+
+		# TODO: 添加 pod lib lint 检查
+		output = `pod lib line #{podFilePath} --allow-warnings | grep -e 'ERROR|error'`
+		puts "输出output#{output}"
+		puts "outputs长度#{output.length.to_s}"
+		if output.length > 0			
+			puts "抓到错误"
+			return
+		end
+
+		puts "未抓到错误"
+		return
 
 		msg = "for pod version:#{version}"
 
