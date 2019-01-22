@@ -38,13 +38,21 @@ qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0
 ```
 
 ## 更新记录
-1. 添加 '-c' 命令，如果你需要将新版本对应的podspec文件拷贝到其他目录进行备份，可以使用该命令。如：
+
+* `2019-1-22` 功能更新： 
+
+    1. 添加通知功能，发生错误，以及完成上传后，在电脑通知栏显示通知；
+    2. 添加 ` -m ` 参数，支持填写该版本备注信息；
+    3. 添加提前使用 ` pod lib lint ` 来对本地 spec 格式进行校验
+    
+*  添加 '-c' 命令，如果你需要将新版本对应的podspec文件拷贝到其他目录进行备份，可以使用该命令。如：
 
     ```
     qwkdeMacBook-Pro-2:WZ_HelloKit qwk$ pod_updater -v 3.0.0 -c 备份目录
     ```
     
-2. 添加podUpdater 文件来指定一个或者多个备份目录。使用方式，在pod项目的当前路径新建podUpdater文件，然后文件里添加内容：
+    
+* 添加podUpdater 文件来指定一个或者多个备份目录。使用方式，在pod项目的当前路径新建podUpdater文件，然后文件里添加内容：
     
     ```
         "path", "备份目录路径1"
