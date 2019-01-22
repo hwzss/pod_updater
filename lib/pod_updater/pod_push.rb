@@ -3,7 +3,6 @@ require 'pod_updater/modify_podspec'
 require 'pod_updater/ui'
 require 'pod_updater/cp_podspec'
 require 'pod_updater/pod_updater_file'
-require 'Cocoapods'
 
 module PodUpdater
 
@@ -32,31 +31,22 @@ module PodUpdater
 			return
 		end
 
-		puts "最后"
+		msg = "for pod version:#{version}"
 
-		# output = `pod lib lint #{podFilePath} --allow-warnings | grep -e 'ERROR\\|error'`
-		# if output.length > 0
-		# 	# TODO: 可以依次打印所有的输出
-		# 	UI.err(output)			
-		# 	return
-		# end
+		modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
 
-		# msg = "for pod version:#{version}"
+		if cp_path
+			copy_podspec(podFilePath, cp_path,version)
+		end
 
-		# modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
+		pod_updater_file = PodUpdaterFile.new(File.dirname(podFilePath))
+		if pod_updater_file.paths
+			pod_updater_file.paths.each_with_index do |elem, index|
+				copy_podspec(podFilePath,elem.to_s, version)
+			end
+		end
 
-		# if cp_path
-		# 	copy_podspec(podFilePath, cp_path,version)
-		# end
-
-		# pod_updater_file = PodUpdaterFile.new(File.dirname(podFilePath))
-		# if pod_updater_file.paths
-		# 	pod_updater_file.paths.each_with_index do |elem, index|
-		# 		copy_podspec(podFilePath,elem.to_s, version)
-		# 	end
-		# end
-
-		# git_tag_flow(path,msg,version)
+		git_tag_flow(path,msg,version)
 
 		# cmd = []
 		# cmd << %(pod trunk push #{podFilePath} --allow-warnings)
