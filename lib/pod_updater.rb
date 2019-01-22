@@ -11,4 +11,5 @@ module PodUpdater
 		pushPodToSevice(path, version, cp_path)
 	end
 
+	UI.notification_openurl(title: "GG", url: "https://cocoapods.org/pods/MCQRScan")
 end
