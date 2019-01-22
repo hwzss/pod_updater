@@ -60,7 +60,7 @@ module PodUpdater
 			end
 		end
 
-		if output =~ %r(ERROR|error)
+		if push_cmd_output =~ %r(ERROR|error)
 			UI.err("pod lib lint 发生错误")								
 		else
 			UI.notification(title: "上传完成✅")
