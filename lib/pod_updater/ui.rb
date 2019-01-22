@@ -31,7 +31,7 @@ module PodUpdater
         `terminal-notifier -title '#{title}r' -message '#{message}' -activate 'com.apple.Terminal'`
     end
 
-    def self.notification_openurl((title: "", message: "", url: "", **args) 
+    def self.notification_openurl(title: "", message: "", url: "", **args) 
       `terminal-notifier -title '#{title}r' -message '#{message}' -open '#{url}'`
     end
     
