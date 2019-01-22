@@ -6,9 +6,9 @@ require "pod_updater/pod_push"
 
 module PodUpdater
 	
-	def self.run(version, cp_path)
+	def self.run(version, cp_path, message)
 		path = File.expand_path(Dir.pwd)
-		pushPodToSevice(path, version, cp_path)
+		pushPodToSevice(path, version, cp_path, message)
 	end
 
 end

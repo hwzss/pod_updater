@@ -7,7 +7,7 @@ require 'pod_updater/pod_updater_file'
 module PodUpdater
 
 		# 给定pod库项目的路径，以及新版pod库的版本，将自己的pod提交到git,然后打上tag，再push trunk到pod服务器去,如果cp_path存在则将最后的podspec文件拷贝到cp_path下
-	def pushPodToSevice(path,version,cp_path)
+	def pushPodToSevice(path, version, cp_path, message)
 
 		podFilePath = pathWithPodspecSuffix(path)
 
@@ -31,7 +31,7 @@ module PodUpdater
 			return
 		end
 
-		msg = "for pod version:#{version}"
+		msg = "for pod version:#{version} #{message}"
 
 		modifyPodspec(path:podFilePath,version:version) #将podspec文件的版本号进行修改
 
