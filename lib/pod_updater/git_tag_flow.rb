@@ -11,11 +11,21 @@ module PodUpdater
 		cmd << 'git add .'
 		cmd << %(git commit -m  "#{msg}")
 		cmd << 'git push'
-		cmd << %(git tag -a #{tag_version} -m "#{msg}")
-		cmd << 'git push --tags'
 
 		UI.log_cmd(cmd)
 		IO.popen(cmd.join(" && ")) do |io|
+			io.each do |line|
+				UI.msg line
+			end
+			io.close
+		end
+
+		tag_cmd = []
+		tag_cmd << %(git tag -f #{tag_version} -m "#{msg}")
+		tag_cmd << 'git push --tags -f'
+
+		UI.log_cmd(tag_cmd)
+		IO.popen(tag_cmd.join(" && ")) do |io|
 			io.each do |line|
 				UI.msg line
 			end
