@@ -48,7 +48,6 @@ module PodUpdater
 
 		git_tag_flow(path,msg,version)
 
-		# 添加错误报告，成功后，弹出通知，点击通知进入 rubygems 上打开 gem
 		cmd = []
 		cmd << %(pod trunk push #{podFilePath} --allow-warnings)
 		push_cmd_output = ""
