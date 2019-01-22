@@ -48,14 +48,23 @@ module PodUpdater
 
 		git_tag_flow(path,msg,version)
 
-		# cmd = []
-		# cmd << %(pod trunk push #{podFilePath} --allow-warnings)
-		# UI.log_cmd(cmd)
-		# IO.popen(cmd.join('')) do |io|
-		# 	io.each do |line|
-		# 		UI.msg(line)
-		# 	end
-		# end
+		# 添加错误报告，成功后，弹出通知，点击通知进入 rubygems 上打开 gem
+		cmd = []
+		cmd << %(pod trunk push #{podFilePath} --allow-warnings)
+		push_cmd_output = ""
+		UI.log_cmd(cmd)
+		IO.popen(cmd.join('')) do |io|
+			io.each do |line|
+				UI.msg(line)
+				push_cmd_output += line.to_s
+			end
+		end
+
+		if output =~ %r(ERROR|error)
+			UI.err("pod lib lint 发生错误")								
+		else
+			UI.notification(title: "上传完成✅")
+		end
 
 	end
 

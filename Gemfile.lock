@@ -1,14 +1,16 @@
 PATH
   remote: .
   specs:
-    pod_updater (0.5.2)
+    pod_updater (0.6.0)
       colorize
+      terminal-notifier
 
 GEM
   remote: https://rubygems.org/
   specs:
     colorize (0.8.1)
     rake (10.4.2)
+    terminal-notifier (2.0.0)
 
 PLATFORMS
   ruby
@@ -19,4 +21,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.6
