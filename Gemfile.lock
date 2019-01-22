@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pod_updater (0.6.1)
+    pod_updater (0.6.3)
       colorize
       terminal-notifier
 
